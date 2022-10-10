@@ -25,7 +25,9 @@ source-repository head
 
 library
   exposed-modules:
+      Grammar
       Lib
+      Parser
   other-modules:
       Paths_bad_compiler
   hs-source-dirs:
