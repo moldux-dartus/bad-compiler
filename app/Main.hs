@@ -5,9 +5,10 @@ import Data.Char
 import System.Environment
 import Parser
 import Grammar
+import Generator
 
 main :: IO ()
-main = getArgs >>= p . head
+main = getArgs >>= e . head
 
 parse :: String -> Assign
 parse s = Assign id expr
@@ -16,3 +17,7 @@ parse s = Assign id expr
                             Just ((a, b), _) -> (a, b)
 
 p = putStrLn . show . parse
+
+e = putStrLn . emit . parse
+
+--(\(Assign _ rest) -> rest)
