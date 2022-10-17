@@ -41,7 +41,7 @@ emitBss expr = case expr of
 emitLn s = "\t" ++ s ++ "\n"
 
 emit :: Assign -> String
-emit a = "section .data\n" ++ emitDataA    a
+emit a = "section .data\n"    ++ emitDataA a
          ++ "section .bss\n"  ++ emitBssA  a
          ++ "section .text\n" ++ emitTextA a
 

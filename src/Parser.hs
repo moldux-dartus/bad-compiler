@@ -108,3 +108,6 @@ iterS m = m <+> iterS m >>> (\(x,y) -> x:y)
 
 result :: a -> Parser a 
 result a cs = Just (a, cs)
+
+accept :: String -> Parser String
+accept w = token (letters <=> (==w))

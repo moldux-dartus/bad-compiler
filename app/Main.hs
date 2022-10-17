@@ -8,16 +8,15 @@ import Grammar
 import Generator
 
 main :: IO ()
-main = getArgs >>= e . head
+main = undefined --getArgs >>= e . head
 
-parse :: String -> Assign
-parse s = Assign id expr
-    where (id, expr) = case assign s of
-                            Nothing -> error "Invalid assignemnt"
-                            Just ((a, b), _) -> (a, b)
+parse :: String -> Program
+parse s = case program s of
+            Nothing -> error "Invalid program"
+            Just (a, b) -> a 
 
 p = putStrLn . show . parse
 
-e = putStrLn . emit . parse
+--e = putStrLn . emit . parse
 
---(\(Assign _ rest) -> rest)
+--
