@@ -109,5 +109,11 @@ iterS m = m <+> iterS m >>> (\(x,y) -> x:y)
 result :: a -> Parser a 
 result a cs = Just (a, cs)
 
+notSpace :: Parser Char
+notSpace = char <=> (not . isSpace)
+
+acceptWord :: String -> Parser String
+acceptWord w = token (letters <=> (==w))
+
 accept :: String -> Parser String
-accept w = token (letters <=> (==w))
+accept w = token ((iter notSpace) <=> (==w))

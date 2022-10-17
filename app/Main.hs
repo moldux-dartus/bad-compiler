@@ -6,6 +6,7 @@ import System.Environment
 import Parser
 import Grammar
 import Generator
+import Boolean
 
 main :: IO ()
 main = undefined --getArgs >>= e . head
